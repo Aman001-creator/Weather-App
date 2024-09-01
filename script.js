@@ -21,16 +21,16 @@ async function fetchWeather(cityInput) {
 
         // Update the UI
         document.getElementById('city').innerText = `${result.location.city}, ${result.location.country}`;
-        document.getElementById('timezone').innerText = `Timezone: ${result.location.timezone_id}`;
+        document.getElementById('timezone').innerText = `${result.location.timezone_id}`;
         document.getElementById('temperature').innerText = `${result.current_observation.condition.temperature}°C`;
         document.getElementById('humidity').innerText = `${result.current_observation.atmosphere.humidity}%`;
         document.getElementById('windspeed').innerText = `${result.current_observation.wind.speed} km/h`;
         document.getElementById('condition').innerText = result.current_observation.condition.text;
         document.getElementById('pressure').innerText = `${result.current_observation.atmosphere.pressure} hPa`;
         document.getElementById('visibility').innerText = `${result.current_observation.atmosphere.visibility} km`;
-        document.getElementById('sunrise').innerText = `Sunrise: ${result.current_observation.astronomy.sunrise}`;
-        document.getElementById('sunset').innerText = `Sunset: ${result.current_observation.astronomy.sunset}`;
-        document.getElementById('date').innerText = `Date: ${new Date(result.current_observation.pubDate * 1000).toLocaleDateString()}`;
+        document.getElementById('sunrise').innerText = `${result.current_observation.astronomy.sunrise}`;
+        document.getElementById('sunset').innerText = `${result.current_observation.astronomy.sunset}`;
+        document.getElementById('date').innerText = `${new Date(result.current_observation.pubDate * 1000).toLocaleDateString()}`;
 
         // Update background based on weather condition
         updateBackground(result.current_observation.condition.text);
@@ -154,6 +154,6 @@ document.getElementById('cityInput').addEventListener('keypress', function(e) {
     }
 });
 //Fetch weather data for Delhi on page load
-// window.onload = () => {
-//     fetchWeather('Delhi');
-// };
+window.onload = () => {
+    fetchWeather('Delhi');
+};
